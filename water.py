@@ -23,6 +23,7 @@ class Water:
 
     def draw_water(self, window):
         for i in range(len(self.list_of_water_drops)):
+            
             self.list_of_water_drops[i]["counter"] += 1
             if self.list_of_water_drops[i]["counter"] > self.x_positions_and_counters[self.list_of_water_drops[i]["position"]]:
                 pygame.draw.rect(window, (90, 120, 153), (self.list_of_water_drops[i]["position"], self.list_of_water_drops[i]["y"], self.starting_water_drop_length, 9))
