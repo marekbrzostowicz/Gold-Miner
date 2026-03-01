@@ -13,9 +13,9 @@ class Fireflies:
 
     def random_x_position(self):
         if self.side_of_fireflies:
-            self.random_x = random.randint(200, 500)
+            self.random_x = random.randint(100, 450)
         else:
-            self.random_x = random.randint(700, 1100)
+            self.random_x = random.randint(900, 1150)
 
         self.spawn_pos[0] = self.random_x
 
@@ -63,7 +63,7 @@ class Fireflies:
             for firefly in self.list_of_fireflies:
                 firefly["counter"] += 1
 
-                if firefly["counter"] > 15:
+                if firefly["counter"] > 20:
                     random_x = random.randint(-5, 5)
                     random_y = random.randint(-10, 10)
 

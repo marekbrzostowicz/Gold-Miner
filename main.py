@@ -1,4 +1,5 @@
 from fireflies import Fireflies
+from water import Water
 
 import pygame
 import math
@@ -15,7 +16,11 @@ window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption('pygame_window')
 clock = pygame.time.Clock()
 
+TLO = pygame.image.load('./images/Screenshot 2026-03-01 233232.png').convert_alpha()
+TLO_ = pygame.transform.scale(TLO, (SCREEN_WIDTH, 100))
+
 fireflies = Fireflies()
+water = Water()
 
 def draw_hak(tick ): 
         start_pos = (300, 300)
@@ -45,11 +50,19 @@ while run:
 
     pygame.draw.line(window, (255, 255, 0), (0, 100), (1200, 100))
 
+    window.blit(TLO_, (0, 0))
+
     #--------------------fireflies
     # fireflies.update_x()
     fireflies.spawn_fireflies()
     fireflies.update_fireflie_position()
     fireflies.draw_fireflies(window)
+
+    #-------------------water
+    water.spawn_water()
+    water.draw_water(window)
+    water.update_water_position()
+    
 
     if tick_radius <= -90:
          site = False
